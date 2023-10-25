@@ -26,7 +26,19 @@ class TTTBoard:
         self.board[pos] = player
         return True        
     
+    def has_won(self, player) -> bool:
+        winning_combinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+        for combination in winning_combinations:
+            if all(self.board[pos] == player for pos in combination):
+                return True
+        return False
 
+    def game_over(self) -> bool:
+        return self.has_won("X") or self.has_won("O") or all (cell != '*' for cell in self.board)
+    
+    def clear(self)
+
+    
 
 
 def play_tic_tac_toe() -> None:
