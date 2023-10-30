@@ -36,7 +36,7 @@ class TTTBoard:
     def game_over(self) -> bool:
         return self.has_won("X") or self.has_won("O") or all (cell != '*' for cell in self.board)
     
-    def clear(self):
+    def clear(self) -> None:
         self.board = ['*'] * 9
 
 def play_tic_tac_toe() -> None:
